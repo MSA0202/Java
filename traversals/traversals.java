@@ -14,7 +14,7 @@ public class traversals {
         }
     }
 
-    // we have another class to do the traversal and create the tree
+    // We have another class to do the traversal and create the tree
     public static class Tree{
         public static void preOrderTraversal(TreeNode nodee){
             // return statements are executed for each recursive call
@@ -49,7 +49,7 @@ public class traversals {
         }
 
         public static TreeNode createTree(){
-            // Instead of doing below, we can use an arraylist instead ( see below-below )
+            // Instead of doing below, we can use an arraylist ( see below-below )
             // TreeNode one = new TreeNode(1);
             // TreeNode two = new TreeNode(2);
             // TreeNode three = new TreeNode(3);
@@ -70,8 +70,8 @@ public class traversals {
             // WRONG !!!!!!!!!!!!!!!!!!!!! 
             //  BELOW IS WRONG AS YOU ARE CREATING NEW TREENODE INSTANCES INSTEAD OF USING EXISTING
             //  ONES WIHTIN THE ARRAYLIST THAT YOU ALREADY CREATED
-            // arrTree.get(0).left = new TreeNode(2); // 2<-1
-            // arrTree.get(0).right = new TreeNode(2); // 2<-1->3
+            // arrTree.get(0).left = new TreeNode(2);
+            // arrTree.get(0).right = new TreeNode(2);
             // arrTree.get(1).left = new TreeNode(4); 
             // arrTree.get(1).right = new TreeNode(5);
             // arrTree.get(2).left = new TreeNode(6);
