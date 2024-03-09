@@ -43,13 +43,64 @@ class ssl{
             return "This node does not exist.";
         }
 
+        public static int len(Node nodeList){
+            int currSize = 0;
+
+            if(nodeList == null){
+                return currSize;
+            }
+            
+            while(nodeList != null){
+                currSize++;
+                nodeList = nodeList.next;
+            }
+            return currSize;
+        }
+
         public static void insert(Node nodeList, String newNode){
             Node head = nodeList;
             while(head.next != null){
                 head = head.next;
             }
             head.next = new Node(newNode);
-            System.out.printf("You inserted a new node: ", head.next.value);
+            System.out.printf("You inserted a new node: %s\n", head.next.value);
+        }
+
+        public static void insertAt(Node nodeList, String newNode, int position){
+            // 1->2->3->null
+            // 0, 1, 2, out of bounds
+            Node head = nodeList;
+            int currentIndex = 0;
+            Node nodeToInsert = new Node(newNode);
+
+            if(position < 0 || position >= len(nodeList)){
+                System.out.println("Out of bounds.");
+            }
+
+            while(currentIndex != position - 1){
+                head = head.next;
+                currentIndex++;
+            }
+            nodeToInsert.next = head.next;
+            head.next = nodeToInsert;
+            System.out.printf("You inserted a new node %s at %s",newNode, position);
+            System.out.println();
+        }
+
+        public static void removeLast(Node nodeList){
+
+        }
+
+        public static void removeAt(Node nodeList){
+            
+        }
+
+        public static void printssl(Node nodeList){
+            while(nodeList != null){
+                System.out.print(nodeList.value + "->");
+                nodeList = nodeList.next;
+            }
+            System.out.println();
         }
     }
 
@@ -57,7 +108,13 @@ class ssl{
         Node head = SinglyLinkedList.createList();
         System.out.println(SinglyLinkedList.getValue(head, "A"));
         System.out.println(SinglyLinkedList.getValue(head, "H"));
+        SinglyLinkedList.printssl(head);
         SinglyLinkedList.insert(head, "H");
-        System.out.println(SinglyLinkedList.getValue(head, "H")); // fix needed, no output shown
+        System.out.println(SinglyLinkedList.getValue(head, "H"));
+        SinglyLinkedList.printssl(head);
+        SinglyLinkedList.insertAt(head, "X", 1);
+        SinglyLinkedList.printssl(head);
+        SinglyLinkedList.insertAt(head, "Z", SinglyLinkedList.len(head)-1);
+        SinglyLinkedList.printssl(head);
     }
 }
